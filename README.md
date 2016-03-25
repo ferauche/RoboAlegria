@@ -3,7 +3,7 @@ Projeto de código aberto, com o objetivo de compartilhar conhecimentos sobre el
 
 O objetivo geral do projeto é criar um Robô para ser utilizado no trabalho de ONGs como o [Doutores da Alegria](https://www.doutoresdaalegria.org.br/).
 
-A estrutra dos diretórios está organizado para
+A estrutra dos diretórios está organizada para
 - appInventor: código do AppInventor para testar a comunicação via bluetooth com o Robô.
 - arduino: código do Arduino para o controle da expressão facial (matriz de leds)
 - images: imagens utilizadas no projeto

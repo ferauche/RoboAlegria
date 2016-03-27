@@ -7,3 +7,5 @@ A estrutra dos diretórios está organizado para
 - appInventor: código do AppInventor para testar a comunicação via bluetooth com o Robô.
 - arduino: código do Arduino para o controle da expressão facial (matriz de leds)
 - images: imagens utilizadas no projeto
+
+Mais informações na wiki do projeto: https://github.com/ferauche/RoboAlegria/wiki

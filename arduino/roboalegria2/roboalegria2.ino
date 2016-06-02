@@ -24,43 +24,43 @@ byte olho_x[8] = { B00000000,
                    B00011000,
                    B00100100,
                    B01100110,
-                   B00000000};
+                   B00000000 };
 
-byte olho_interrogacao[8] = {B00011000,
+byte olho_interrogacao[8] = { B00011000,
                     	      B00100100,
                     	      B00000100,
-                    		    B00000100,
-                   		      B00001000,
-                    		    B00010000,
-                   		    	B00000000,
-                    		    B00010000};
+                    	      B00000100,
+                   	      B00001000,
+                    	      B00010000,
+                   	      B00000000,
+                              B00010000 };
                    
-byte olho_neutro[8] = {B00000000,
-                       B00011000,
-                       B00111100,
-                       B00111100,
-                       B00111100,
-                       B00111100,
-                       B00011000,
-                       B00000000};
-                  
-byte olho_arregalado[8] = {B00011000,
-                           B00111100,
-                           B00111100,
-                           B00111100,
-                           B00111100,
-                           B00111100,
-                           B00111100,
-                           B00011000};
-
-byte olho_fechado[8] = {B00000000,
-                        B00000000,
-                        B00000000,
+byte olho_neutro[8] = { B00000000,
+                        B00011000,
                         B00111100,
-                        B01111110,
-                        B01100110,
-                        B00000000,
-                        B00000000};
+                        B00111100,
+                        B00111100,
+                        B00111100,
+                        B00011000,
+                        B00000000 };
+                  
+byte olho_arregalado[8] = { B00011000,
+                            B00111100,
+                            B00111100,
+                            B00111100,
+                            B00111100,
+                            B00111100,
+                            B00111100,
+                            B00011000 };
+
+byte olho_fechado[8] = { B00000000,
+                         B00000000,
+                         B00000000,
+                         B00111100,
+                         B01111110,
+                         B01100110,
+                         B00000000,
+                         B00000000 };
                         
 byte boca_alegre[24] = { B00000000,
                          B00001000,
@@ -124,24 +124,24 @@ byte aberta_triste[24] = { B00000000,
                            B00100000,
                            B00011100,
                            B00000011,
-                         // parte1
-                         B01111110,
-                         B10000001,
-                         B00000000,
-                         B00000000,
-                         B00000000,
-                         B00000000,
-                         B00000000,
-                         B11111111,
-                         // parte2
-                         B00000000,
-                         B11000000,
-                         B00110000,
-                         B00001000,
-                         B00000100,
-                         B00000100,
-                         B00111000,
-                         B11000000 };
+                           // parte1
+                           B01111110,
+                           B10000001,
+                           B00000000,
+                           B00000000,
+                           B00000000,
+                           B00000000,
+                           B00000000,
+                           B11111111,
+                           // parte2
+                           B00000000,
+                           B11000000,
+                           B00110000,
+                           B00001000,
+                           B00000100,
+                           B00000100,
+                           B00111000,
+                           B11000000 };
                          
 byte aberta_alegre[24] = { B00000000,
                            B00011000,
@@ -226,26 +226,26 @@ byte boca_lingua[24] = { B00000000,
 
 
 void setup(){
-  lc.shutdown(0,false);
-  lc.setIntensity(0,1);
-  lc.clearDisplay(0);
-  lc.shutdown(1,false);
-  lc.setIntensity(1,1);
-  lc.clearDisplay(1);
-  lc.shutdown(2,false);
-  lc.setIntensity(2,1);
-  lc.clearDisplay(2);
-  lc.shutdown(3,false);
-  lc.setIntensity(3,1);
-  lc.clearDisplay(3);
-  lc.shutdown(4,false);
-  lc.setIntensity(4,1);
-  lc.clearDisplay(4);
- // Define o braço esquerdo para porta 7 e direito porta 9
-  servoE.attach(7);
-  servoD.attach(9);
- // Inicia o Serial para receber os dados via bluetooh
-  Serial.begin(9600);
+	lc.shutdown(0,false);
+  	lc.setIntensity(0,1);
+  	lc.clearDisplay(0);
+  	lc.shutdown(1,false);
+  	lc.setIntensity(1,1);
+  	lc.clearDisplay(1);
+  	lc.shutdown(2,false);
+  	lc.setIntensity(2,1);
+  	lc.clearDisplay(2);
+  	lc.shutdown(3,false);
+  	lc.setIntensity(3,1);
+  	lc.clearDisplay(3);
+  	lc.shutdown(4,false);
+  	lc.setIntensity(4,1);
+  	lc.clearDisplay(4);
+ 	// Define o braço esquerdo para porta 7 e direito porta 9
+  	servoE.attach(7);
+  	servoD.attach(9);
+ 	// Inicia o Serial para receber os dados via bluetooh
+  	Serial.begin(9600);
 }
 
 void display_olhos(byte olhos[]) {
@@ -256,71 +256,71 @@ void display_olhos(byte olhos[]) {
 }
         
 void display_boca(byte boca[]) {
-  for(int i = 0; i < 8; i++) {
-    lc.setColumn(2, i, boca[i]);
-    lc.setColumn(3, i, boca[i + 8]);
-    lc.setColumn(4, i ,boca[i + 16]);
-  }
+	for(int i = 0; i < 8; i++) {
+		lc.setColumn(2, i, boca[i]);
+    		lc.setColumn(3, i, boca[i + 8]);
+    		lc.setColumn(4, i ,boca[i + 16]);
+	}
 }                   
 
 void loop()
 {
-  char bluetooth = Serial.read();
+	char bluetooth = Serial.read();
 	switch (bluetooth) {
 		// triste
-	    case '1':
-	      display_olhos(olho_x);
-    	  display_boca(boca_triste);
-	      break;
-	    // alegre
-	    case '2':
-	      display_olhos(olho_neutro);
+		case '1':
+	      	  display_olhos(olho_x);
+    	          display_boca(boca_triste);
+	      	break;
+	    	// alegre
+	    	case '2':
+	          display_olhos(olho_neutro);
    		  display_boca(boca_alegre);
-	      break;
-	    // alegre boca aberta
-	    case '3':
-	      display_olhos(olho_neutro);
-        display_boca(aberta_alegre);
-	      break;
-	   // mostrar língua 
-	    case '4':
+	      	break;
+	    	// alegre boca aberta
+	    	case '3':
+	      	  display_olhos(olho_neutro);
+                  display_boca(aberta_alegre);
+	      	break;
+	   	// mostrar língua 
+	    	case '4':
    		  display_olhos(olho_fechado);
-    	  display_boca(boca_lingua);
-    	  break;
-    	// ponto de interrogação ?.?
- 	    case '5':
+	    	  display_boca(boca_lingua);
+    	  	break;
+    		// ponto de interrogação ?.?
+ 	    	case '5':
    		  display_olhos(olho_interrogacao);
-    	  display_boca(boca_nojo);
-    	  break;
-    	// triste boca abeerta
- 	    case '6':
-    	  display_olhos(olho_arregalado);
-        display_boca(aberta_triste);
-    	  break;
-     	// feliz aberto olho arregalado
- 	    case '7':
-    	  display_olhos(olho_arregalado);
-        display_boca(aberta_alegre);
-    	  break;   	
-    	// braços para baixo  
-    	case 'A':
+    	  	  display_boca(boca_nojo);
+    	  	break;
+    		// triste boca abeerta
+ 	    	case '6':
+    	  	  display_olhos(olho_arregalado);
+        	  display_boca(aberta_triste);
+    	  	break;
+     		// feliz aberto olho arregalado
+ 	    	case '7':
+    	  	  display_olhos(olho_arregalado);
+        	  display_boca(aberta_alegre);
+    	  	break;   	
+    		// braços para baixo  
+    		case 'A':
    		  servoE.write(0);
-        servoD.write(0);
-    	  break;   	
-    	// braços para cima 
-    	case 'B':
+        	  servoD.write(0);
+    	  	break;   	
+    		// braços para cima 
+    		case 'B':
    		  servoE.write(160);
-        servoD.write(160);
-    	  break;  
-    	// braço direito cima
-    	case 'C':
-        servoD.write(160);
-        servoE.write(0);
-    	  break; 
-    	// braço esquerdo cima
-    	case 'D':
-        servoE.write(160);
-        servoD.write(0);
-    	  break;  
+        	  servoD.write(160);
+    	  	break;  
+    		// braço direito cima
+    		case 'C':
+        	  servoD.write(160);
+        	  servoE.write(0);
+    	  	break; 
+    		// braço esquerdo cima
+    		case 'D':
+                  servoE.write(160);
+        	  servoD.write(0);
+    		 break;  
 	}
 }

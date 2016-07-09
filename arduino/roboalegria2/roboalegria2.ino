@@ -4,10 +4,14 @@ O objetivo geral do projeto é criar um Robô para ser utilizado no trabalho de 
 
 #include <Servo.h>
 #include "LedControl.h"
+#include <SoftwareSerial.h>
 
 //Pinos 12 (DIN), 11 (CLK), 10 (CS)
 //Ultimo parametro do construtor eh a quantidade de displays a serem controlados
 LedControl lc = LedControl(12,11,10,5);
+
+//Defino os pino Rx pino 2 e Tx pino 3
+SoftwareSerial bluetooth(2, 3);
 
 // Braço Esquerdo
 Servo servoE;
@@ -226,6 +230,7 @@ byte boca_lingua[24] = { B00000000,
 
 
 void setup(){
+  bluetooth.begin(115200); //inicio comunicação bluetooth baud-rate 115200
   lc.shutdown(0,false);
   lc.setIntensity(0,1);
   lc.clearDisplay(0);
@@ -241,11 +246,9 @@ void setup(){
   lc.shutdown(4,false);
   lc.setIntensity(4,1);
   lc.clearDisplay(4);
- // Define o braço esquerdo para porta 7 e direito porta 9
-  servoE.attach(7);
-  servoD.attach(9);
- // Inicia o Serial para receber os dados via bluetooh
-  Serial.begin(9600);
+ // Define o braço esquerdo para porta 4 e direito porta 6
+  servoE.attach(4);
+  servoD.attach(5);
 }
 
 void display_olhos(byte olhos[]) {
@@ -265,8 +268,8 @@ void display_boca(byte boca[]) {
 
 void loop()
 {
-  char bluetooth = Serial.read();
-	switch (bluetooth) {
+  char recebe_bluetooth = bluetooth.read();
+	switch (recebe_bluetooth) {
 		// triste
 	    case '1':
 	      display_olhos(olho_x);

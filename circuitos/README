@@ -1,14 +1,6 @@
 Alterações para próxima versão:
 1 - Colocar diodo e capacitor paralelo a alimentação do servomotor para evitar instabilidades
-  * Incluído um diodo e um capacitor (100nF e 100uF) em paralelo com os servomotores. Os testes não indicaram melhora.;
-  * A tensão da fonte cai de 5 para 4,7V durante o recebimento de dados pelo ESP8266. Foi testada a inclusão de um capacitor
-  (2200 uF) entre o 5V e o GND do Arduino e entre o 5V e GND dos servomotores. Sem melhoras;
-  * Testar incluir um capacitor (2200 uF) entre o 3V e GND do ESP8266. Caso o problema persista, tentar incluir regulador externo
-  de 5V para 3V3.
 2 - Diminuir largura da placa para ficar igual à do Arduino;
-3 - Resolver problema na soldagem dos pinos não conectados (testar placa de duas faces?);
-4 - Marcar no silkscreen a área ocupada pelo ESP8266;
-5 - Incluir LEDs para indicação da alimentação (5V da bateria, 5V do Arduino, 3V do Arduino);
-6 - Incluir LED para indicar conexão com o wi-fi (opcional);
-7 - Incluir botão de reset no shield (opcional)/
-8 - Verificar se os servos conectados aos pinos 7 e 8 estão funcionando
+3 - Marcar no silkscreen a área ocupada pelo ESP8266;
+4 - Incluir LEDs para indicação da alimentação (5V da bateria, 5V do Arduino, 3V do Arduino);
+5 - Incluir botão de reset no shield (opcional)/

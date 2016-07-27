@@ -1,0 +1,6 @@
+Alterações para próxima versão:
+1 - Colocar diodo e capacitor paralelo a alimentação do servomotor para evitar instabilidades
+2 - Diminuir largura da placa para ficar igual à do Arduino;
+3 - Marcar no silkscreen a área ocupada pelo ESP8266;
+4 - Incluir LEDs para indicação da alimentação (5V da bateria, 5V do Arduino, 3V do Arduino);
+5 - Incluir botão de reset no shield (opcional)/
